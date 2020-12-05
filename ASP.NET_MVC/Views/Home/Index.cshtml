@@ -1,7 +1,24 @@
-﻿
+﻿@model IEnumerable<ASP.NET_MVC.Models.Livro>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*Criei uma pagina html passando a Lista de Livros para ser utilizada*@
+<h2>Livros Cadastrados</h2>
+<br />
+@Html.ActionLink("Novo Livro", "Novo Livro", "Home")
+<br />
+<br />
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li style="padding-bottom:10px">
+            @Html.DisplayFor(m => item.ID)<span>.</span>
+            @Html.ActionLink(item.Titulo, "Editar Livro", "Home", new { @id = item.ID }, null)<span>,</span>
+            @Html.DisplayFor(m => item.Autor)<span> - </span>
+            @Html.DisplayFor(m => item.anoPublicacao)<span>.</span>
+        </li>
+    }
+</ul>
 

@@ -28,7 +28,7 @@ namespace ASP.NET_MVC.Controllers
         //por mostrar os dados ao usuario na camada View(Visualização) do projeto
         public ActionResult Index()
         {
-            return View();
+            return View(Livros);
         }
     }
 }
